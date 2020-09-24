@@ -18,9 +18,9 @@ int get_nombre(char* resultado, char* mensaje, char* mensajeError, int intentos,
 
 int main(void) {
 	char nombre[len];
-	if(get_nombre(nombre, "indique un nombre\n", "error", 3, 10)==0)
+	if(get_nombre(nombre, "indique un nombre de hasta 10 caracteres\n", "error", 3, 10)==0)
 	{
-		printf("%s",nombre);
+		printf("\nel nombre es:%s",nombre);
 	}
 	return EXIT_SUCCESS;
 }
@@ -49,7 +49,7 @@ int get_nombre(char* resultado, char* mensaje, char* mensajeError, int intentos,
 			printf("%s", mensaje);
 			scanf("%s",buffer);
 			__fpurge(stdin);
-			if(soloLetras(buffer)==0)
+			if(soloLetras(buffer)==0 && strlen(buffer)<=limite)
 			{
 				r=0;
 				strncpy(resultado,buffer,limite);
@@ -64,3 +64,4 @@ int get_nombre(char* resultado, char* mensaje, char* mensajeError, int intentos,
 	return r;
 
 }
+
